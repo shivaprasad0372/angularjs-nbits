@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<p>{{"my name is: "+fullName}}</p>
+<div ng-controller="ctr_1">
+<p> name is : {{fName+lName}}</p>
+<p> full name is: {{fullName}}</p>
+</div>
+<div ng-controller="ctr_2">
+<p> name is : {{fName+lName}}</p>
+<p> full name is: {{fullName}}</p>
+</div>
+<script>
+var myApp = angular.module("myApp",[]);
+myApp.run(function($rootScope){
+$rootScope.fullName = "shiva prasad";
+});
+myApp.controller("ctr_1",function($scope){
+$scope.fName = "shiva";
+$scope.lName = "prasad";
+});
+myApp.controller("ctr_2",function($scope){
+$scope.fName = "prasad";
+$scope.lName = "shiva";
+});
+</script>
+</body>
+</html>

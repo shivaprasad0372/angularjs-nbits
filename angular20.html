@@ -1,0 +1,37 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="cntro">
+<input type="text" ng-model="name">name in reverse is:{{reversename}}
+<button type="button" ng-click="capitalizeName()">Capitalize</button>
+</div>
+<script>
+var serviceExm = angular.module('myApp',[]);
+serviceExm.service("wordService",function(){
+this.reverseWord = function(input){
+var result = "";
+input = input || "";
+for(var i = 0; i  < input.length; i++){
+result = input.charAt(i)+result;
+}
+return result;
+}
+this.capitalize = function(input){
+return input.toUpperCase();
+}
+});
+
+serviceExm.controller("cntro",function($scope,wordService){
+$scope.reverseWord = wordService.reverseWord($scope,name);
+$scope.$watch('name',function(newVal,oldVal){
+$scope.reversename = wordService.reverseWord($scope.name);
+})
+$scope.capitalizeName = function(){
+$scope.reversename = wordService.capitalize($scope.reversename);
+}
+});
+</script>
+</body>
+</html>

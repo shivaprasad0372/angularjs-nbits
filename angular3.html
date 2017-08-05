@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="ctr1">
+name:<input type="text" ng-model="details.name"/>
+from:<input type="text" ng-model="cit"/>
+{{details.name+" from "+cit}}
+and {{cit}}
+<div ng-controller="ctr2">
+
+</div>
+</div>
+<script>
+var myApp = angular.module("myApp",[]);
+myApp.controller("ctr1",function($scope){
+var details = {"name":"shiva","from":"warangal"};
+$scope.city = "wrg";
+$scope.details = details;
+});
+myApp.controller("ctr2",function($scope){
+$scope.cit = "hyd";
+});
+</script>
+</body>
+</html>

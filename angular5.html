@@ -1,0 +1,24 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="ctr">
+fName : <input type="text" ng-model="details.fName"/>
+lName : <input type="text" ng-model="details.lName"/>
+<p>{{details.fName+""+details.lName}}</p>
+<button type="button" ng-click="clicking()">click</button>
+</div>
+<script>
+var myApp = angular.module("myApp",[]);
+myApp.controller("ctr",function(){
+this.name="shiva";
+var details = {"fName":"shiva","lName":"prasad"};
+this.details = details;
+this.clicking = function(){
+alert(details,fName);
+};
+});
+</script>
+</body>
+</html>

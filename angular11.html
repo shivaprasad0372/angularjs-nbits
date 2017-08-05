@@ -1,0 +1,16 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="cntr">
+{{ name | json}}
+</div>
+<script>
+var myApp = angular.module("myApp",[]);
+myApp.controller("cntr",function($scope){
+$scope.name = { "name":"shiva","age":32};
+});
+</script>
+</body>
+</html>

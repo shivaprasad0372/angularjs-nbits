@@ -1,0 +1,39 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="cntro">
+<input type="text" ng-model="name">name in reverse is:{{reversename}}
+<button type="button" ng-click="capitalizeName()">Capitalize</button>
+</div>
+<script>
+var factories = angular.module("myApp",[]);
+factories.factory("myFactory",function(){
+var factoryExm = {reverseWord : function(input){
+var result = "";
+input = input || "";
+for(var i = 0; i < input.length; i++){
+result = input.charAt(i) + result;
+}
+return result;
+},
+capitalize : function(input){
+return input.toUpperCase();
+}
+}
+return factoryExm;
+});
+factories.controller("cntro",function($scope,myFactory){
+$scope.reversename = myFactory.reverseWord($scope.name);
+$scope.$watch('name',function(oldVal,newVal){
+$scope.reversename = myFactory.reverseWord($scope.name)
+})
+$scope.capitalizeName = function(){
+$scope.reversename = myFactory.capitalize($scope.reversename);
+}
+});
+
+</script>
+</body>
+</html>

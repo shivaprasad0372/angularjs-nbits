@@ -1,0 +1,17 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="cntro">
+{{number | number:2}}
+<p>{{20120804112407 | date:'yyyy:mm:dd:hh:mm:ss'}}</p>
+</div>
+<script>
+var myApp = angular.module("myApp",[]);
+myApp.controller("cntro",function($scope){
+$scope.number = 343567682;
+});
+</script>
+</body>
+</html>

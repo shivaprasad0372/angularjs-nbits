@@ -1,0 +1,34 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div id= "independent" ng-controller="ctr2 as independent">
+my company is: {{independent.company.name}}
+my name is: {{independent.details.name}}
+</div>
+<div id="parent" ng-controller = "ctr1 as parent">
+name is :<input type="text" ng-model = "parent.details.name"><br>
+from : <input type="text" ng-model = "parent.details.from"><br>
+{{parent.details.name+""+parent.details.from}}<br>
+my company is {{child.company.name}}
+<div id="child" ng-controller="ctr2 as child">
+company is:{{child.company.name}}<br>
+my  name is:{{parent.details.from}}
+</div>
+</div>
+<script>
+var myApp = angular.module("myApp",[]);
+myApp.controller("ctr1",function(){
+var details = {"name":"shiva","from":"warangal"};
+this.details = details;
+this.fullName = "shiva prasad";
+});
+myApp.controller("ctr2",function(){
+var company = {"name":"shivaTech", "where":"texas"};
+this.company = company;
+this.founder = "eppakayala shivaprasad";
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+{{4+5}}
+
+<div ng-init="names={name:'shiva',age:32}">
+<p>{{names.age}}</p>
+</div>
+<div>
+<input type="text" ng-model="data"/>
+<br>{{data}}</br>
+</div>
+<div ng-controller="myCnt">
+<p>{{"my name is "+name}}</p>
+</div>
+<script>
+var myModule = angular.module('myApp',[]);
+myModule.controller("myCnt",function($scope){
+$scope.name="shiva";
+});
+myModule.controller("clicking",function($scope){
+$scope.click = function(msg){
+alert(msg);
+}
+});
+myModule.controller("show",function($scope){
+var details = {fName:"shiva",lName:"prasad"};
+$scope.names = details;
+$scope.fun = function(){
+alert("my name is:"+$scope.names.fName+" "+$scope.names.lName);
+}
+});
+myModule.controller("model",function($scope){
+$scope.click = function(){
+alert("my name is: "+$scope.fName+" "+$scope.lName);
+}
+});
+</script>
+<div ng-controller="model">
+<input type="text" ng-model="fName"/>
+<input type="text" ng-model="lName"/>
+<button type="button" ng-click="click()">model</button>
+</div>
+
+<div ng-controller="clicking">
+<button type="button" ng-click="click('hello shiva,how are you?')">click</button>
+</div>
+<div ng-controller="show">
+<p>{{details.fName+""+details.lName}}</p>
+<p>{{names.fName+""+names.lName}}</p>
+<button type="button" ng-click="fun()">show</button>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- angularjs directives
+ng-click:
+ng-change:
+ng-init;
+ng-app;
+ng-model;
+ng-show;
+ng-href;
+ng-include;
+ng-repeate;
+ng-selected;
+ -->

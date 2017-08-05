@@ -1,0 +1,25 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="cntro"></div>
+<script>
+angular
+.module("myApp",['module1','module2'])
+.config(function(){document.write("came here config module");})
+.run(function(){document.write("here run module");})
+.controller('cntro',function(){
+document.write("inside myconroller of main");
+});
+angular
+.module('module1',[module2])
+.config(function(){document.write("this is config of module1");})
+.run(function(){document.write("this is run of module1");})
+angular
+.module('module2',[])
+.config(function(){document.write("this is config of module2");})
+.run(function(){document.write("this is run of module2");})
+</script>
+</body>
+</html>

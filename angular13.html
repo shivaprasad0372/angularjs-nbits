@@ -1,0 +1,22 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="cntro">
+{{numbers | limitTo:numberLimit}} <br>
+{{letters | limitTo:letterLimmit}} <br>
+{{logNumber | limitTo:longNumberLimit}}
+</div>
+<script>
+angular.module("myApp",[]).controller("cntro",function($scope){
+$scope.numbers = [1,2,3,4,5,6,7,8];
+$scope.letters = "this is shiva prasad,working as web developer";
+$scope.logNumber = 123456789;
+$scope.numberLimit = 4;
+$scope.letterLimmit = 6;
+$scope.longNumberLimit = 5;
+});
+</script>
+</body>
+</html>

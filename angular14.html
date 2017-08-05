@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="cntro">
+<table>
+<tr>
+<th>name</th>
+<th>age</th>
+</tr>
+<tr ng-repeat="frnd in details| orderBy:'age'">
+<td>{{friend.name}}</td>
+<td>{{friend.age}}</td>
+</tr>
+</table>
+</div>
+<script>
+angular.module("myApp",[]).controller("cntro",function($scope){
+$scope.details = [{name:"shiva",age:24},
+{name:"prasad",age:25},
+{name:"sp",age:29},
+{name:"ps",age:26},
+];
+});
+</script>
+</body>
+</html>
